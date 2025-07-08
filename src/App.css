@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 .App {
-  text-align: center;
-}
+  text-align: center;}
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +36,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.app-container {
+  text-align: center;
+  padding: 100px;
+  font-family: "Jersey 10", sans-serif;
+}
+
+
+.title {
+  font-size: 10em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+button {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-10px); }
+  80% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
 }
