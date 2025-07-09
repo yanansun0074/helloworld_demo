@@ -7,6 +7,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.set-result.outputs.result }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +25,18 @@ jobs:
         run: npx playwright install
 
       - name: Run tests
-        run: npm test
+        id: run-tests
+        run: |
+          npm test || echo "TEST_FAILED" > test_status.txt
+
+      - name: Set test result
+        id: set-result
+        run: |
+          if [ -f test_status.txt ]; then
+            echo "result=failed" >> $GITHUB_OUTPUT
+          else
+            echo "result=passed" >> $GITHUB_OUTPUT
+          fi
 
   deploy:
     needs: test
@@ -41,6 +55,10 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: npm run deploy
+  
+      - name: Set deploy result
+        id: set-status
+        run: echo "deployed=true" >> $GITHUB_OUTPUT
 
   notify:
     needs: [test, deploy]
@@ -52,7 +70,15 @@ jobs:
         with:
           payload: |
             {
-              "text": "${{ needs.test.outputs.result == 'passed' && ':white_check_mark:' || ':x:' }} React app test ${{ needs.test.outputs.result }}. ${{ needs.test.outputs.result == 'passed' && 'Deployment complete.' || 'Deployment skipped.' }}"
+              "text": "${{ 
+                needs.test.outputs.result == 'failed' 
+                && ':x: Deployment failed: Tests did not pass.' 
+                || (
+                  needs.deploy.outputs.deployed == 'true'
+                  && ':white_check_mark: Deployment succeeded! Visit: https://yanansun0074.github.io/helloworld_demo>'
+                  || ':grey_question: Deployment was skipped or failed unexpectedly.'
+                )
+              }}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
