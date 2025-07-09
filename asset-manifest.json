@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/helloworld_demo/static/css/main.5ac70794.css",
+    "main.js": "/helloworld_demo/static/js/main.c2ec292e.js",
+    "static/js/453.6b480830.chunk.js": "/helloworld_demo/static/js/453.6b480830.chunk.js",
+    "static/media/bg_5.jpg": "/helloworld_demo/static/media/bg_5.72d7788ea6e2612eb47a.jpg",
+    "static/media/bg_3.jpg": "/helloworld_demo/static/media/bg_3.c4e2f0be8cec133a3ed2.jpg",
+    "static/media/bg_2.jpg": "/helloworld_demo/static/media/bg_2.4c4e849a61c315cf16fd.jpg",
+    "static/media/bg_4.png": "/helloworld_demo/static/media/bg_4.2f72a7aee8c471ee700f.png",
+    "static/media/bg_1.png": "/helloworld_demo/static/media/bg_1.49642fdf89fec7e0bffd.png",
+    "index.html": "/helloworld_demo/index.html",
+    "main.5ac70794.css.map": "/helloworld_demo/static/css/main.5ac70794.css.map",
+    "main.c2ec292e.js.map": "/helloworld_demo/static/js/main.c2ec292e.js.map",
+    "453.6b480830.chunk.js.map": "/helloworld_demo/static/js/453.6b480830.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ac70794.css",
+    "static/js/main.c2ec292e.js"
+  ]
+}
