@@ -26,6 +26,6 @@ Deployed with Github Page
 Implemented a Slack App for deployment alerts in a channel
 - if any test failed: Send message **"Tests did not pass."**
 - if tests succeeded but deployment failed: **"Deployment was skipped or failed unexpectedly."**
-- success: **"Deployment succeeded! Visit: https://yanansun0074.github.io/helloworld_demo>"**
+- success: **"Deployment succeeded! Visit: https://yanansun0074.github.io/helloworld_demo"**
 
 
